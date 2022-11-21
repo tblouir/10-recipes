@@ -1,0 +1,95 @@
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(26, 26, 36);
+  color: white;
+  min-height: 100vh;
+  min-width: 100vw;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: gray;
+}
+
+.card-container {
+  width: 75vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 3rem;
+}
+
+.card-text {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.card-container img {
+  width: 100%;
+}
+
+.header {
+  margin-top: 1rem;
+  width: 100vw;
+  text-align: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 200px;
+  min-height: 200px;
+  color: white;
+}
+
+.card a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card10 {
+  grid-column: 2 / 3;
+}
+
+.name, .ingredients, .directions {
+  width: 60ch;
+}
+
+.name {
+  text-align: center;
+}
+
+.ingredients {
+  margin-top: 2rem;
+}
+
+@media (width <= 420px) {
+  body {
+    background-color: red;
+  }
+
+  .card {
+    min-width: 120px;
+    min-height: 120px;
+    text-align: center;
+  }
+
+  .card-container img {
+    width: 90%;
+  }
+
+  .card-container {
+    width: 100vw;
+  }
+}
