@@ -1,3 +1,8 @@
+:root {
+  --sun-size: 8rem;
+  --sun-center: calc(50vw - var(--sun-size));
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -72,6 +77,42 @@ a:hover {
 
 .ingredients {
   margin-top: 2rem;
+}
+
+.card1 {
+  animation: 1s linear 0s 1 fade-in;
+}
+
+#sun {
+  width: var(--sun-size);
+  height: var(--sun-size);
+  position: absolute;
+  top: calc(100vh - var(--sun-size));
+  /* left: 0; */
+  border-radius: 50%;
+  box-shadow: 0 0 30px lightcoral;
+  background: radial-gradient(circle, yellow, lightyellow 90%);
+  transform-origin: 0 calc(var(--sun-size) - 50vh);
+  animation: 2s linear 0s 1 forwards arc;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes arc {
+  0% {
+    translate: calc(var(--sun-size) - 47vw);
+  }
+  100% {
+    translate: calc(48vw - var(--sun-size));
+    rotate: 1turn;
+  }
 }
 
 @media (width <= 420px) {
