@@ -1,6 +1,6 @@
 :root {
   --sun-size: 8rem;
-  --sun-center: calc(50vw - var(--sun-size));
+  --column1-delay: 1.6s;
 }
 
 body {
@@ -10,10 +10,11 @@ body {
   flex-direction: column;
   background-color: rgb(26, 26, 36);
   color: white;
-  min-height: 100vh;
-  min-width: 100vw;
+  height: 120vh;
+  width: 99vw;
   align-items: center;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 a {
@@ -29,22 +30,25 @@ a:hover {
   width: 75vw;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin-top: 3rem;
-}
-
-.card-text {
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  flex-grow: 1;
 }
 
 .card-container img {
   width: 100%;
 }
 
-.header {
+.footer {
+  background-color: black;
+  display: flex;
+  width: 101vw;
   margin-top: 1rem;
-  width: 100vw;
-  text-align: center;
+  height: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer a {
+  text-decoration: underline;
 }
 
 .card {
@@ -63,8 +67,32 @@ a:hover {
   align-items: center;
 }
 
+.card-text {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
 .card10 {
   grid-column: 2 / 3;
+  animation: 1s linear 2s 1 backwards fade-in;
+}
+
+.card1 {
+  animation: 1s linear var(--column1-delay) 1 backwards fade-in;
+}
+.card4 {
+  animation: 1s linear var(--column1-delay) 1 backwards fade-in;
+}
+.card7 {
+  animation: 1s linear var(--column1-delay) 1 backwards fade-in;
+}
+
+.card-container .card:nth-child(3n + 2) {
+  animation: 1s linear 2s 1 backwards fade-in;
+}
+
+.card-container .card:nth-child(3n) {
+  animation: 1s linear 2.6s 1 backwards fade-in;
 }
 
 .name, .ingredients, .directions {
@@ -79,21 +107,38 @@ a:hover {
   margin-top: 2rem;
 }
 
-.card1 {
-  animation: 1s linear 0s 1 fade-in;
+#circle {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+}
+
+#sun-stick {
+  position: absolute;
+  width: 3rem;
+  height: 150vw;
+  animation: 4.5s linear 0s 1 rotate;
 }
 
 #sun {
   width: var(--sun-size);
   height: var(--sun-size);
   position: absolute;
-  top: calc(100vh - var(--sun-size));
-  /* left: 0; */
+  right: -2.5rem;
   border-radius: 50%;
   box-shadow: 0 0 30px lightcoral;
   background: radial-gradient(circle, yellow, lightyellow 90%);
-  transform-origin: 0 calc(var(--sun-size) - 50vh);
-  animation: 2s linear 0s 1 forwards arc;
+}
+
+@keyframes rotate {
+  0% {
+    rotate: 0.8turn;
+  }
+  100% {
+    rotate: 1.2turn;
+  }
 }
 
 @keyframes fade-in {
@@ -105,21 +150,7 @@ a:hover {
   }
 }
 
-@keyframes arc {
-  0% {
-    translate: calc(var(--sun-size) - 47vw);
-  }
-  100% {
-    translate: calc(48vw - var(--sun-size));
-    rotate: 1turn;
-  }
-}
-
 @media (width <= 420px) {
-  body {
-    background-color: red;
-  }
-
   .card {
     min-width: 120px;
     min-height: 120px;
@@ -132,5 +163,23 @@ a:hover {
 
   .card-container {
     width: 100vw;
+  }
+
+  .card-text {
+    height: 4ch;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+  }
+
+  .card1 .card-text {
+    translate: 0 -2.25rem;
+  }
+
+  .card3 .card-text {
+    translate: 0 -1rem;
+  }
+
+  .card6 .card-text {
+    translate: 0 -2.5rem;
   }
 }
